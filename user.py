@@ -24,6 +24,19 @@ def readAll():
     print(result)
     return result
 
+
+def writeAll(user_name, user_email, user_password, user_landOwner):
+    # Show table values!!
+    mysql = connection.cursor()
+    query = "INSERT INTO users (username, email, password, landOwner ) VALUES (%s,%s,%s,%i)"
+    mysql.execute(query, ( user_name, user_email, user_password, user_landOwner))
+    result = mysql.fetchall()
+    connection.commit()
+    print(result)
+    return result
+
+
+
 def readwithId(user_id):
     # Show table values!!
     mysql = connection.cursor()
@@ -35,16 +48,11 @@ def readwithId(user_id):
     return result
 
 
-def readOne(user_name):
+def readUser(user_name):
     # Show table values!!
     mysql = connection.cursor()
-    query1= "SELECT * FROM users where id='{0}'".format(user_name)
-    # query2= "SELECT * FROM users where username= {0}".format(user_name)
-    # query2= "SELECT * FROM users where username=' "+user_name+" '"
-    # query2="SELECT * FROM users WHERE username LIKE %s"
-    # mysql.execute(query2,(user_name, ))
-    # mysql.execute(query2, ('varaa'))
-    # mysql.execute(query2)
+    query2= "SELECT * FROM users where username='{0}'".format(user_name) 
+    mysql.execute(query2)
     result1 = mysql.fetchall()
     connection.commit()
     print(result1)
@@ -229,7 +237,11 @@ def readOne(user_name):
 
 
 
-
+# query2= "SELECT * FROM users where username= {0}".format(user_name)
+    # query2= "SELECT * FROM users where username=' "+user_name+" '"
+    # query2="SELECT * FROM users WHERE username LIKE %s"
+    # mysql.execute(query2,(user_name, ))
+    # mysql.execute(query2, ('varaa'))
 
 
 
