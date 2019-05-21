@@ -1,0 +1,390 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: Remote Farming!
+# host: localhost:10010
+# basePath prefixes all resource paths 
+# basePath: /
+basePath: "/api"
+# schemes:
+#   # tip: remove http to make production-grade
+#   - http
+#   - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+
+tags:
+- name: "user"
+  description: "Everything about the Users."
+- name: "property"
+  description: "Everything about the properties or land available to give or get on rent."
+- name: "active-sales"
+  description: "About the link of the user and the land who owns it."
+  
+paths:
+  /user:
+    get:
+      tags:
+      - "user"
+      summary: "Get users"
+      description: "anything...."
+      operationId: "user.readAll"
+      responses:
+        200:
+          description: Successfully read user from people list operation
+
+
+  /user/{user_id}:
+    get:
+      tags:
+      - "user"
+      summary: "Get single users"
+      description: "anything...."
+      operationId: "user.readwithId"
+      parameters:
+        - name: user_id
+          in: path
+          description: email of the person to get from the list
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read one user from people list.
+ 
+  /user/{user_name}:
+    get:
+      tags:
+      - "user"
+      summary: "Get single users"
+      description: "anything...."
+      operationId: "user.readOne"
+      parameters:
+        - name: user_name
+          in: path
+          description: email of the person to get from the list
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read one user from people list.
+
+  # /property:
+  #   get:
+  #     tags:
+  #     - "property"
+  #     summary: "Get lands"
+  #     description: "anything...."
+  #     operationId: "user.readAllLand"
+  #     responses:
+  #       200:
+  #         description: Successfully read user from people list operation
+
+  # /property/{land_pin}:
+  #   get:
+  #     tags:
+  #     - "property"
+  #     summary: "Get property using pin"
+  #     description: "anything...."
+  #     operationId: "user.readPin"
+  #     parameters:
+  #       - name: land_pin
+  #         in: path
+  #         description: email of the person to get from the list
+  #         type: string
+  #         required: True
+  #     responses:
+  #       200:
+  #         description: Successfully read one user from people list.
+
+          
+  
+  # /property/{land_name}:
+  #   get:
+  #     tags:
+  #     - "property"
+  #     summary: "Get property using pin"
+  #     description: "anything...."
+  #     operationId: "user.readLandName"
+  #     parameters:
+  #       - name: land_name
+  #         in: path
+  #         description: email of the person to get from the list
+  #         type: string
+  #         required: True
+  #     responses:
+  #       200:
+  #         description: Successfully read one user from people list.
+  
+
+
+  # /user/{password}:
+  #   get:
+  #     tags:
+  #     - "user"
+  #     summary: "Get single users"
+  #     description: "anything...."
+  #     operationId: "user.readOne"
+  #     parameters:
+  #       - name: password
+  #         in: path
+  #         description: email of the person to get from the list
+  #         type: string
+  #         required: True
+  #     responses:
+  #       200:
+  #         description: Successfully read one user from people list.
+  
+
+
+
+  # /user/login:
+  #   get:
+  #     tags:
+  #     - "users"
+  #     summary: "Logs user into the system"
+  #     description: ""
+  #     operationId: "loginUser"
+      
+  #     responses:
+  #       200:
+  #         description: "Operation Successful..."
+  #         # headers:
+  #         #   X-Rate-Limit:
+  #         #   type: "string"
+  #         #   X-Expires-After:
+  #         #     type: "string"
+  #       400:
+  #         description: "Invalid username/password supplied"
+          
+  # /user/logout:
+  #   get:
+  #     tags:
+  #     - "users"  
+  #     summary: "Get the user out from the current session after he logs out."
+  #     operationId: "logoutUser"
+
+  #     responses:
+  #        default:
+  #         description: "Operation Successful..."
+          
+  # /user/update:
+  #   put:
+  #     tags:
+  #     - "users"  
+  #     summary: "Get the user out from the current session after he logs out."
+  #     operationId: "updateUser"
+
+  #     responses:
+  #        default:
+  #         description: "Operation Successful..."
+          
+#   /user/deleteUser:
+#     delete:
+#       tags:
+#       - "users"
+#       summary: "deleting a user"
+#       operationId: "deleteUser"
+#       description: "Deleting an existing user from the database....!!! O mera Laungawacha!!!"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+          
+#   /property:
+#     post:
+#       tags: 
+#       - "lands"
+#       - "property"
+
+#       summary: "Add new property."
+#       description: "Adding a new property for you wanna give provide for rent."
+#       operationId: "addLand"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+  
+#   /property/getbyPin:
+#     get:
+#       tags: 
+#       - "lands"
+#       - "property"
+#       summary: "Get or show the property using the pin code."
+#       description: "It will match the required pin code and then will show the required one."
+#       operationId: "getbyPin"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."        
+  
+#   /property/getbyCity:
+#     get:
+#       tags: 
+#       - "lands"
+#       - "property"
+#       summary: "Will match city name."
+#       description: "It will match the city name and show the result6."
+#       operationId: "getbyCity"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."        
+  
+#   /property/getbyAreaSize:
+#     get:
+#       tags: 
+#       - "lands"
+#       - "property"
+#       summary: "Will match the size of the area and give the results."
+#       description: "It will match the required amont of land as entered and then will show the required results."
+#       operationId: "getbyAreaSize"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."        
+
+#   /property/getbyStatus:
+#     get:
+#       tags: 
+#       - "lands"
+#       - "property"
+#       summary: "Show only the places that are available."
+#       description: "Will only show the available places, those which are booked will not be displayed in this list."
+#       operationId: "getbyStatus"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."        
+
+#   /property/updateLand:
+#     put:
+#       tags:
+#       - "property"
+#       summary: "update land information"
+#       operationId: "updateLand"
+#       description: "Deleting an land or proerty from the database....!"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+  
+#   /property/deleteLand:
+#     delete:
+#       tags:
+#       - "property"
+#       summary: "deleting a user"
+#       operationId: "deleteLand"
+#       description: "Deleting an land or proerty from the database....!"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+  
+#   /active-sales/forOwner:
+#     get:
+#       tags:
+#       - "active-sales"
+#       summary: "Showing the property/properties which are actively rented."
+#       description: "Lands which are currently active or rented by someone, will be shown in this list. This is only for landowners."
+#       operationId: "activeLandOwner"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+
+#   /active-sales/forFarmer:
+#     get:
+#       tags:
+#       - "active-sales"
+#       summary: "Showing the property which are actively taken on rent."
+#       description: "Lands which are currently active or taken on rent by the user will be in this list. This is only for farmers."
+#       operationId: "activeLandFarmer"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+#   /active-sales/nOwner:
+#     get:
+#       tags:
+#       - "active-sales"
+#       summary: "Showing the property/properties which are not actively rented."
+#       description: "Lands/ Properties which are not currently active or rented by someone, will be shown in this list. This is only for landowners."
+#       operationId: "inactiveLandOwner"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+
+#   /active-sales/suggestionsForFarmer:
+#     get:
+#       tags:
+#       - "active-sales"
+#       summary: "Showing the suggestive property to the farmer as per his intersts."
+#       description: "Suggestions of the list of land/properties by analysing the user's interest and giving him suggestions. "
+#       operationId: "suggestionsForFarmer"
+      
+#       responses:
+#         default:
+#           description: "Operation Successful..."
+
+          
+          
+# definitions:
+#   user:
+#     type: "object"
+#     properties:
+#       id:
+#         type: "integer"
+#         format: "int64"
+#       username:
+#         type: "string"
+#       firstName:
+#         type: "string"
+#       lastName:
+#         type: "string"
+#       email:
+#         type: "string"
+#       password:
+#         type: "string"
+#       phone:
+#         type: "string"
+#       userStatus:
+#         type: "integer"
+#         format: "int32"
+#         description: "User Status"
+#     xml:
+#       name: "User"
+  
+#   property:
+#     type: "object"
+#     properties:
+#       id:
+#         type: "integer"
+#         format: "int64"
+#       name:
+#         type: "string"
+#       city:
+#         type: "string"
+#       pin:
+#         type: "string"
+#       LandStatus:
+#         type: "integer"
+#         format: "int32"
+#         description: "Land Status"
+#       Location:
+#         type: "string"
+#       Area:
+#         type: "string"
+#         description: "Area size in Yards"
+#     xml:
+#       name: "Property"
+  
+  
+
+          
+          
+#           
