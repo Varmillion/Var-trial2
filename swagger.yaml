@@ -37,7 +37,38 @@ paths:
         200:
           description: Successfully read user from people list operation
 
-
+  /user/post:
+    post:
+      tags:
+      - "user"
+      summary: "Post users"
+      description: "anything...."
+      operationId: "user.writeAll"
+      parameters:
+        - name: user_name
+          in: query
+          description: username of the person to get from the list
+          type: string
+          required: True
+        - name: user_email
+          in: query
+          description: email of the person to get from the list
+          type: string
+          required: True
+        - name: user_password
+          in: query
+          description: email of the person to get from the list
+          type: string
+          required: True
+        - name: user_landOwner
+          in: query
+          description: email of the person to get from the list
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read one user from people list.
+ 
   /user/{user_id}:
     get:
       tags:
@@ -49,7 +80,7 @@ paths:
         - name: user_id
           in: path
           description: email of the person to get from the list
-          type: string
+          type: integer
           required: True
       responses:
         200:
@@ -61,7 +92,7 @@ paths:
       - "user"
       summary: "Get single users"
       description: "anything...."
-      operationId: "user.readOne"
+      operationId: "user.readUser"
       parameters:
         - name: user_name
           in: path
