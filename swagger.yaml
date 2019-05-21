@@ -100,7 +100,25 @@ paths:
   #       200:
   #         description: Successfully read one user from people list.
 
-          
+
+  # /property/{land_area}:
+  #   get:
+  #     tags:
+  #     - "property"
+  #     summary: "Get property using pin"
+  #     description: "anything...."
+  #     operationId: "user.land_area"
+  #     parameters:
+  #       - name: areaSize
+  #         in: path
+  #         description: email of the person to get from the list
+  #         type: string
+  #         required: True
+  #     responses:
+  #       200:
+  #         description: Successfully read one user from people list.
+
+
   
   # /property/{land_name}:
   #   get:
