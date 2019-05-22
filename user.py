@@ -24,11 +24,21 @@ def readAll():
     print(result)
     return result
 
+# def writeAll(user_name, user_email, user_password):
+#     # Show table values!!
+#     mysql = connection.cursor()
+#     query = "INSERT INTO users (username, email, password ) VALUES (%s,%s,%s)"
+#     mysql.execute(query, ( user_name, user_email, user_password))
+#     result = mysql.fetchall()
+#     connection.commit()
+#     print(result)
+#     return result
+
 
 def writeAll(user_name, user_email, user_password, user_landOwner):
     # Show table values!!
     mysql = connection.cursor()
-    query = "INSERT INTO users (username, email, password, landOwner ) VALUES (%s,%s,%s,%i)"
+    query = "INSERT INTO users (username, email, password, landOwner ) VALUES (%s,%s,%s,%s)"
     mysql.execute(query, ( user_name, user_email, user_password, user_landOwner))
     result = mysql.fetchall()
     connection.commit()
@@ -84,25 +94,25 @@ def readUser(user_name):
 
 
 
-# def readAllLand():
-#     # Show table values!!
-#     mysql = connection.cursor()
-#     query4 = "SELECT * FROM land"
-#     mysql.execute(query4)
-#     result3 = mysql.fetchall()
-#     connection.commit()
-#     print(result3)
-#     return result3
+def readAllLand():
+    # Show table values!!
+    mysql = connection.cursor()
+    query4 = "SELECT * FROM land"
+    mysql.execute(query4)
+    result3 = mysql.fetchall()
+    connection.commit()
+    print(result3)
+    return result3
 
-# def readPin(land_pin):
-#     # Show table values!!
-#     mysql = connection.cursor()
-#     query3= "SELECT * FROM land where pincode={0}".format(land_pin)
-#     mysql.execute(query3)
-#     result2 = mysql.fetchall()
-#     connection.commit()
-#     print(result2)
-#     return result2
+def readPin(land_pin):
+    # Show table values!!
+    mysql = connection.cursor()
+    query3= "SELECT * FROM land where pincode={0}".format(land_pin)
+    mysql.execute(query3)
+    result2 = mysql.fetchall()
+    connection.commit()
+    print(result2)
+    return result2
 
 # def readLArea(land_area):
 #     # Show table values!!

@@ -63,7 +63,7 @@ paths:
         - name: user_landOwner
           in: query
           description: email of the person to get from the list
-          type: integer
+          type: string
           required: True
       responses:
         200:
@@ -103,33 +103,66 @@ paths:
         200:
           description: Successfully read one user from people list.
 
-  # /property:
-  #   get:
-  #     tags:
-  #     - "property"
-  #     summary: "Get lands"
-  #     description: "anything...."
-  #     operationId: "user.readAllLand"
-  #     responses:
-  #       200:
-  #         description: Successfully read user from people list operation
+  /property:
+    get:
+      tags:
+      - "property"
+      summary: "Get lands"
+      description: "anything...."
+      operationId: "user.readAllLand"
+      responses:
+        200:
+          description: Successfully read user from people list operation
 
-  # /property/{land_pin}:
-  #   get:
+  /property/{land_pin}:
+    get:
+      tags:
+      - "property"
+      summary: "Get property using pin"
+      description: "anything...."
+      operationId: "user.readPin"
+      parameters:
+        - name: land_pin
+          in: path
+          description: email of the person to get from the list
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read one user from people list.
+
+  # /property/post:
+  #   post:
   #     tags:
   #     - "property"
-  #     summary: "Get property using pin"
+  #     summary: "Post users"
   #     description: "anything...."
-  #     operationId: "user.readPin"
+  #     operationId: "user.writeLand"
   #     parameters:
-  #       - name: land_pin
-  #         in: path
+  #       - name: user_name
+  #         in: query
+  #         description: username of the person to get from the list
+  #         type: string
+  #         required: True
+  #       - name: user_email
+  #         in: query
+  #         description: email of the person to get from the list
+  #         type: string
+  #         required: True
+  #       - name: user_password
+  #         in: query
+  #         description: email of the person to get from the list
+  #         type: string
+  #         required: True
+  #       - name: user_landOwner
+  #         in: query
   #         description: email of the person to get from the list
   #         type: string
   #         required: True
   #     responses:
   #       200:
   #         description: Successfully read one user from people list.
+ 
 
 
   # /property/{land_area}:
@@ -138,7 +171,7 @@ paths:
   #     - "property"
   #     summary: "Get property using pin"
   #     description: "anything...."
-  #     operationId: "user.land_area"
+  #     operationId: "user.readLArea"
   #     parameters:
   #       - name: areaSize
   #         in: path
